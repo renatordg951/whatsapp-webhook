@@ -1,6 +1,0 @@
-_satellite.pushAsyncScript(function(event, target, $variables){
-  var q = _satellite.getQueryParam('cm_mmc');
-if(q === 'INTTEST-_-null-_-null-_-null'){
-	_satellite.setCookie('_fsx', 'true');
-}
-});
