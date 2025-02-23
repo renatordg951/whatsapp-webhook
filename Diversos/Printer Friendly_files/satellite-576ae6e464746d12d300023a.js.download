@@ -1,0 +1,10 @@
+try{
+  var _script = function(b){
+    var a = document.createElement('script');
+    a.src = b;
+    document.head.appendChild(a);
+  }
+  var src = "//platform.twitter.com/oct.js";
+  _script(src);
+  twttr.conversion.trackPid('numwr', { tw_sale_amount: 0, tw_order_quantity: 0 });
+}catch(e) { _satellite.notify(e); }

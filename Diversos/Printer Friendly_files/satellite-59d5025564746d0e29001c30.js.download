@@ -1,0 +1,94 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  aReady(function(){
+  try {
+    var subtotal = _a.reservationSubtotal,
+        currencyCode = _a.reservationCurrency,
+    		extrasTotal = 0;
+    
+    var extras = _a.addons;
+    if(extras){
+      for(var i = 0; i < extras.length; i++){
+				extrasTotal = parseFloat(extrasTotal) + parseFloat(extras[i].total);
+      }
+    }
+    var mcvId = _satellite.getVar('s_mcvID'),
+      intCamp = _satellite.getVar('s_v13'),
+      searchTerm = _satellite.getVar('s_v14'),
+      refVendor = _satellite.getVar('s_v17'),
+      linkName = _satellite.getVar('s_v20'),
+      loyaltyST = _satellite.getVar('s_p14'),
+      bookingCode = _satellite.getVar('s_v26'),
+      ddt = _satellite.getVar('s_v28'),
+      dl = _satellite.getVar('s_v29'),
+      qstring = _satellite.getVar('s_v3'),
+      pdt = _satellite.getVar('s_v30'),
+      pl = _satellite.getVar('s_v31'),
+      cid = _satellite.getVar('s_v32'),
+      corCode = _satellite.getVar('s_v33'),
+      userPath = _satellite.getVar('s_v34'),
+      driveAlliance = _satellite.getVar('s_v35'),
+      redemptionId = _satellite.getVar('s_v36'),
+      payMethod = _satellite.getVar('s_v37'),
+      server = _satellite.getVar('s_server'),
+      confNum = _satellite.getVar('s_v39'),
+      resType = _satellite.getVar('s_v40'),
+      lang = _satellite.getVar('s_v43'),
+      resLeadTime = _satellite.getVar('s_v44'),
+      resLength = _satellite.getVar('s_v45'),
+      loyaltyId = _satellite.getVar('s_v46'),
+      oneWay = _satellite.getVar('s_v47'),
+      rewardPref = _satellite.getVar('s_v48'),
+      car = _satellite.getVar('s_v49'),
+      prev = _satellite.getVar('s_v5'),
+      template = _satellite.getVar('s_v55'),
+      contentType = _satellite.getVar('s_v56'),
+      profRec = _satellite.getVar('s_v57'),
+      iata = _satellite.getVar('s_v58');
+      //currencyCode = _satellite.getVar('s_currency');
+
+    var data = {
+      'allow_custom_scripts': true,
+      'u3': qstring,
+      'u5': prev,
+      'u11': mcvId,
+      'u13': intCamp,
+      'u14': searchTerm,
+      'u17': refVendor,
+      'u2': location.pathname,
+      'u20': linkName,
+      'u25': loyaltyST,
+      'u26': bookingCode,
+      'u28': ddt,
+      'u29': dl,
+      'u30': pdt,
+      'u31': pl,
+      'u32': cid,
+      'u33': corCode,
+      'u34': userPath,
+      'u35': driveAlliance,
+      'u36': redemptionId,
+      'u37': payMethod,
+      'u38': server,
+      'u39': confNum,
+      'u4': location.host+location.pathname,
+      'u40': resType,
+      'u43': lang,
+      'u44': resLeadTime,
+      'u45': resLength,
+      'u46': loyaltyId,
+      'u47': oneWay,
+      'u48': rewardPref,
+      'u49': car,
+      'u55': template,
+      'u56': contentType,
+      'u57': profRec,
+      'u58': iata,
+      'u59': extrasTotal,
+      'u60': subtotal,
+      'u97': currencyCode,
+      'send_to': 'DC-8163242/alusctcv/alamo00+standard'
+    };
+    gtag('event', 'conversion', data);
+  }catch(e) {_satellite.notify('EHI DCM: ' + e )}
+},false);
+});

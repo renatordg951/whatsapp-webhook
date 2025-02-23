@@ -1,0 +1,15 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+  function _appendImg(b){
+    var a = document.createElement("img");
+    a.width=1;
+    a.height=1;
+    a.style='display:none';
+    a.src=b;
+    document.getElementsByTagName("body")[0].appendChild(a)
+  }
+
+  var src = "//googleads.g.doubleclick.net/pagead/viewthroughconversion/860477131/?guid=ON&script=0";
+  _appendImg(src);
+}catch(e){ _satellite.notify('@@@@: ' + e ); }
+});

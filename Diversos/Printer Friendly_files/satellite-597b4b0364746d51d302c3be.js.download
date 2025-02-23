@@ -1,0 +1,42 @@
+if(typeof aReady !== 'undefined'){
+  aReady(function(){ 
+    try {
+      ga('ehiglobal.set', {
+        'dimension1': _a.reservationCarClass,
+        'dimension2': _a.reservationDropoffDateTime,
+        'dimension3': _a.reservationPickupDateTime,
+        'dimension4': _a.dropoffStationId,
+        'dimension5': _a.pickupStationId,
+        'dimension6': _a.loyaltyTier,
+        'dimension7': _a.loyaltyId,
+        'dimension8': _a.couponCode,
+        'dimension9': _a.userPath,
+        'dimension10': _a.reservationPrepaid,
+        'dimension11': _a.reservationConfirmationNumber,
+        'dimension12': _a.reservationLeadTime,
+        'dimension13': _a.reservationLength
+      });
+      /*
+			var step = '';
+      var isResPath = false;
+      if(location.pathname.indexOf('/car-rental/reservation/selectCar.html') != -1) {
+        step = 1;
+        isResPath = true;
+      } else if(location.pathname.indexOf('/car-rental/reservation/chooseAddOn.html') != -1) {
+        step = 2;
+        isResPath = true;
+      } else if(location.pathname.indexOf('/car-rental/reservation/reviewAndSubmit.html') != -1) {
+        step = 3;
+        isResPath = true;
+      }
+      if(isResPath === true) {
+        ga('ehiglobal.require', 'ec');
+        ga('ehiglobal.ec:setAction','checkout', {
+          'step': step,
+        });
+      }
+      */
+      ga('ehiglobal.send', 'pageview', location.pathname);
+    }catch(e) { _satellite.notify('GA Pageview: ' + e ); } 
+  },false);
+}

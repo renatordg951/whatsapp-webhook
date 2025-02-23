@@ -1,0 +1,23 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+  var $footer = $('.footerLinksBlock a'), $subfooter = $('.subfooter a');
+
+  for(var i = 0, l = $footer.length; i < l; i++){
+    setAttr('Footer', $footer[i]);
+  }
+
+  for(var i = 0, l = $subfooter.length; i < l; i++){
+    setAttr('Subfooter', $subfooter[i]);
+  }
+
+  function setAttr(section, el){
+    var atr = [],s;
+    atr.push(section);
+    atr.push(el.title.replace(/ /g,'-'));
+    atr.push(_a.pageId);
+    s = atr.join('-_-');
+    el.setAttribute('manual_cm_sp', s);
+    return el;
+  }
+}catch(e){}
+});
